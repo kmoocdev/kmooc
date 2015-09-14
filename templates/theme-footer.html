@@ -1,0 +1,43 @@
+## mako
+<%!
+  from django.core.urlresolvers import reverse
+  from django.utils.translation import ugettext as _
+%>
+<%namespace name='static' file='/static_content.html'/>
+<%!
+  from datetime import date
+%>
+
+<div class="wrapper-footer">
+  <footer id="footer-openedx">
+        <div class="colophon">
+            <div class="wrapper-logo">
+                <p>
+                    <a href="./_ Your Platform Name Here_files/_ Your Platform Name Here.html"><img alt="K-MOOC" src="/static/images/logo2.png"></a>
+                </p>
+            </div>
+
+            <nav class="nav-colophon" aria-label="About">
+                <ol>
+                    <li><a href="#">자주하는 질문</a></li>
+                    <li><a href="#">연락처</a></li>
+                    <li><a href="http://blog.naver.com/kmooc_kr">블로그</a></li>
+                </ol>
+            </nav>
+
+            <p class="copyright">Copyright (c) 2015.National Institute For Lifelong Education. All rights reserved</p>
+
+            <nav class="nav-legal" aria-label="Legal">
+                <ul>
+                    <li class="nav-legal-01"><a href="#">이용약관</a></li>
+                    <li class="nav-legal-02"><a href="#">개인정보처리방침</a></li>
+                    <li class="nav-legal-03"><a href="#">저작권보호정책 </a></li>
+                </ul>
+            </nav>
+            <div class="sns">
+                <a href="https://www.youtube.com/channel/UCaXoWllLNJ4t5d39nmJKyJw"><img alt="유투브" src="/static/images/sns1.png"></a>
+                <a href="https://www.facebook.com/kmooc.nile"><img alt="페이스북" src="/static/images/sns2.png"></a>
+            </div>
+        </div>
+    </footer>
+</div>
