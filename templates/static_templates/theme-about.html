@@ -7,47 +7,101 @@
 
 <%inherit file="/main.html" />
 
-<%block name="title"><title>${_('about')}</title></%block>
+<%block name="title"><title>${_('About')}</title></%block>
 
 <%block name="js_extra">
+  <script type="text/javascript">
+    $(function() {
+      $('section.message').hide();
+      $('#about-menu a').removeClass('active');
+      window.scrollTo(0,0);
+      var hash = window.location.hash
+
+      if (hash) {
+        $('section' + hash).show();
+        $('#about-menu a.' + hash.substring(1)).addClass('active');
+      } else {
+        $('section#about').show();
+        $('#about-menu a.about').addClass('active');
+      }
+
+      $('#about-menu a').click(function(event) {
+        event.preventDefault();
+        $('#about-menu a').removeClass('active');
+        $(this).addClass('active');
+        var clickId = "section" + $(this).attr('href');
+        $('section.message').hide();
+        $(clickId).show();
+      });
+    });
+  </script>
 </%block>
 
 <section class="container about" style="width: auto;">
-    <section class="school_info">	 <!-- school_info S -->
-        <div class="inner">
-            <p class="title_type2"><span>무크(MOOC)란?</span></p>
-            <p>MOOC(Massive Open Online Course)란 온라인을 통해서 누구나, 어디서나, 원하는 강의를 무료로 들을 수 있는 온라인 공개강좌 서비스를 말합니다.</p>
-            <p>무크(MOOC)는 기존에 학습자가 수동적으로 듣기만 하던 온라인 학습동영상과 달리 교수자와 학습자, 학습자와 학습자간 질의응답, 토론, 퀴즈, 과제 제출 등 양방향 학습이 가능한 새로운 교육 환경을 제공합니다.</p>
-            <p>아울러, 수강인원의 제한없이 누구나 수강이 가능하여 배경지식이 다른 학습자간 지식 공유의 장을 제공함으로써 학습자는 대학의 울타리를 넘어 새로운 학습경험을 하게 될 것입니다.</p>
-        </div>
+  <nav id="about-menu">
+    <a href="#about" class="about active">${_('About')}</a>
+    <a href="#careers" class="careers">${_('Careers')}</a>
+    <a href="#contact" class="contact">${_('Contact')}</a>
+  </nav>
 
-        <div class="inner">
-            <p class="title_type2"><span>한국형 온라인 공개강좌(K-MOOC)의 비전</span></p>
-            <p>한국형 무크(K-MOOC)는 국내 대학의 최고 수준 강의 공개를 통한 대학 수업의 질적 혁신을 목적으로 하고 있습니다. </p>
-            <p>모든 강의를 무료로 제공함으로써 대학 간 교육 역량 격차에 따른 제약을 완화하여 대학 교육의 실질적인 기회 균형을 실현하고자 하며, 궁극적으로 대학교육에 대한 평생학습 기반을 마련, 국가 인적자원개발에 기여할 것입니다.</p>
-            <p>한국형 무크(K-MOOC)는 “열린 고등교육 체제를 통한 대학교육 혁신”을 비전으로 정부의 일방적인 추진이 아닌 대학의 자율성과 다양성이 최대한 발휘되도록 추진합니다.</p>
-        </div>
+  <section class="vision">
 
-        <header class="type1">
-            <img src="/static/images/sub01.png" alt="최고의 대학, 최고의 강의! 한국형 온라인에서 시작하세요.">
-        </header>
+## About Section ##
+    <section class="message left" id="about">
+      <div class="photo">
+        <!--
+            Photo License: CC0 Public Domain (Free for commercial use / No attribution required)
+            https://pixabay.com/en/book-books-circle-curly-education-2869/
+        -->
+        <img src="${static.url('themes/default/images/about.jpg')}" alt="" />
+      </div>
+      <article>
+        <h2>${_('About')}</h2>
 
-        <div class="inner">
-            <p class="title_type2"><span>한국형 온라인 공개강좌(K-MOOC) 추진현황</span></p>
-            <p>2015년 10월 첫 선을 보일 한국형 무크(K-MOOC)는 ’15년 4월 시범운영에 참여할 10개 대학, 총 27개 강좌를 공정한 심사를 거쳐 선정하였으며 참여대학은 각 대학의 명예를 걸고 최고 수준의 강좌로 개발하였습니다.</p>
-            <p>강좌가 탑재되고 학습자가 접속해서 사용하는 플랫폼은 ‘공개, 공유’라는 무크(MOOC)의 기본정신과 향후 콘텐츠의 국제적 호환성, 사용자 편의성 등을 종합적으로 고려하여 (美)MIT와 Harvard대에서 개발한 ‘Open edX 플랫폼’을 활용하여 구축하였습니다. </p>
-        </div>
+        <p>Your about text goes here!</p>
 
-        <header class="type1">
-            <img src="/static/images/sub01.png" alt="최고의 대학, 최고의 강의! 한국형 온라인에서 시작하세요.">
-        </header>
-
-        <div class="inner">
-            <p class="title_type2"><span>한국형 온라인 공개강좌(K-MOOC) 서비스</span></p>
-            <p>한국형 무크(K-MOOC)는 2015년 서울대 등 10개 대학의 총 27개 강좌를 시작으로 ’18년까지 총 500개 강좌 운영을 목표로 매년 공개 강좌수를 확대해 나갈 계획입니다. </p>
-            <p>우리나라의 앞선 ICT 인프라 환경과 e-Learning 기술력을 바탕으로 고등교육 정보화 수준은 이미 세계 일류 수준을 보유하고 있습니다. 앞으로 한국형 무크(K-MOOC)는 글로벌(Global) 명품 브랜드로 거듭나기 위해 최선을 다하겠습니다. </p>
-        </div>
-
+        <p>&nbsp;</p>
+      </article>
+      <hr class="fade-right-hr-divider">
     </section>
+
+## Careers Section ##
+    <section class="message left" id="careers">
+      <div class="photo">
+        <!--
+            Photo License: CC0 Public Domain (Free for commercial use / No attribution required)
+            https://pixabay.com/en/man-corporate-businessman-suit-tie-871960/
+        -->
+        <img src="${static.url('themes/default/images/careers.jpg')}" alt="" />
+      </div>
+      <article>
+        <h2>${_('Careers')}</h2>
+
+        <p>Your job postings go here!</p>
+
+        <p>&nbsp;</p>
+      </article>
+      <hr class="fade-right-hr-divider">
+    </section>
+
+## Contact Section ##
+    <section class="message left" id="contact">
+      <div class="photo">
+        <!--
+            Photo License: CC0 Public Domain (Free for commercial use / No attribution required)
+            https://pixabay.com/en/network-cobweb-dewdrop-586177/
+        -->
+        <img src="${static.url('themes/default/images/contact.jpg')}" alt="" />
+      </div>
+      <article id="stanford-OpenEdX-contact">
+        <h2>${_('Contact Us')}</h2>
+
+        <p>Your contact information goes here!</p>
+
+        <p>&nbsp;</p>
+      </article>
+      <hr class="fade-right-hr-divider">
+    </section>
+  </section>
 
 </section>
