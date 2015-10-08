@@ -1,77 +1,78 @@
-## mako
 <%!
-  from django.core.urlresolvers import reverse
+  import json
   from django.utils.translation import ugettext as _
+  from microsite_configuration import microsite
 %>
-<%namespace name='static' file='/static_content.html'/>
+<%inherit file="../main.html" />
 
-<%inherit file="/main.html" />
+<%namespace name='static' file='../static_content.html'/>
 
-<%block name="title"><title>연락처 | K-MOOC</title></%block>
+<%block name="header_extras"></%block>
 
 <%block name="js_extra"></%block>
 
-<section class="container about" style="width: auto;">
+<%block name="pagetitle">개인정보처리방침 | K-MOOC</%block>
 
-   <section id="about" class="message">
-    <section class="school_info">
-        <div class="inner">
-            <p class="title_type2" style="padding-bottom: 15px;border-bottom: 1px solid #c8c8c8;"><span>연락처</span></p>
-            <p>
-                <b>
-                안녕하세요.<br/>
-                혹시 현재 K-MOOC 강좌 수강생이신가요?<br>
-                특정 강좌에 대한 질문이나 제안, 문제 등이 있나요? 그렇다면 그 강좌의 게시판에 글을 남겨주세요.
-                </b>
-            </p>
+<section class="container rule">
 
-			<p>
-                <b>
-                K-MOOC에 대한 전반적인 질문이 있나요? 그렇다면 <a href="/faqs">자주하는 질문</a>을 먼저 확인해주세요.
-                </b>
-            </p>
+    <h2>연락처</h2>
 
-            <p>
-                <b>
-                그 외에 다른 도움이 필요한가요? 이메일로 연락해주세요.</br>
-                (운영시간: 월∼금, 09:00-18:00)
-                </b>
-            </p>
+    <p>
+        안녕하세요.<br>
+        혹시 현재 K-MOOC 강좌 수강생이신가요?<br>
+        특정 강좌에 대한 질문이나 제안, 문제 등이 있나요? 그렇다면 그 강좌의 게시판에 글을 남겨주세요.<br>
+    </p>
+    <p>
+        K-MOOC에 대한 전반적인 질문이 있나요? 그렇다면 <a href="/faqs">자주하는 질문</a>을 먼저 확인해주세요.
+    </p>
+    <p>
+        그 외에 다른 도움이 필요한가요? 이메일로 연락해주세요.
+    </p>
 
-            <p>
-                <b>1. K-MOOC 사업 관련 : kmooc@nile.or.kr</b><br/>
-                &nbsp;&nbsp;&nbsp;&nbsp;(1) 파트너십 관련 문의<br/>
-                &nbsp;&nbsp;&nbsp;&nbsp;(2) 홍보 관련 문의<br/>
-                &nbsp;&nbsp;&nbsp;&nbsp;(3) 저작권 관련 문의
-            </p>
+    <dd><ol><li>
+        <table summary="이메일 연락처">
+            <caption>
+                이메일 연락처
+            </caption>
+            <colgroup>
+                <col width="50%"/>
+                <col width="auto"/>
+            </colgroup>
+            <thead>
+                <tr>
+                    <th scope="col">K-MOOC 사업 관련 : kmooc@nile.or.kr</th>
+                    <th scope="col">기술지원 관련 : help_kmooc@nile.or.kr</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><br/>
+                        (1) 파트너십 관련 문의<br/>
+                       (2) 홍보 관련 문의<br/>
+                       (3) 저작권 관련 문의
+                    </td>
+                    <td>
+                        (1) 가입과 계정 활성화 관련 문제<br/>
+                       (2) 사이트 접속 문제<br/>
+                       (3) 장애로 인한 웹접근성 관련 문제<br/>
+                       (4) 계정의 세부내용 수정에 대한 문제<br/>
+                       (5) 다른 강좌 수강생의 비윤리적, 폭력적 행위에 대한 문제
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </li></ol></dd>
+    <br/>
+    <p>
+        여러분의 어려움을 해결하기 위해 최대한 노력하겠습니다.
+    </p>
+    <p>
+        감사합니다.
+    </p>
+    <p>
+        <img src="/static/images/logo.png" alt="kmooc" />
+    </p>
 
-            <p>
-                <b>2. 기술지원 관련 : help_kmooc@nile.or.kr</b><br/>
-                &nbsp;&nbsp;&nbsp;&nbsp;(1) 가입과 계정 활성화 관련 문제<br/>
-                &nbsp;&nbsp;&nbsp;&nbsp;(2) 사이트 접속 문제<br/>
-                &nbsp;&nbsp;&nbsp;&nbsp;(3) 장애로 인한 웹접근성 관련 문제<br/>
-                &nbsp;&nbsp;&nbsp;&nbsp;(4) 계정의 세부내용 수정에 대한 문제<br/>
-                &nbsp;&nbsp;&nbsp;&nbsp;(5) 다른 강좌 수강생의 비윤리적, 폭력적 행위에 대한 문제
-            </p>
-
-            <p>
-                <b>
-                    여러분의 어려움을 해결하기 위해 최대한 노력하겠습니다.<br/>
-                    감사합니다.
-                </b>
-            </p>
-
-            <p>
-                <b>K-MOOC</b>
-                <br/><br/>
-            </p>
-
-
-
-
-
-        </div>
-    </section>
-   </section>
 
 </section>
+
